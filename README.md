@@ -94,5 +94,23 @@
     2. add reducer to store.js
     3. use action in ProductScreen.js
     4. add /api/product/:id to backend api
+14. Handle Add To Cart Button
+    1. Handle Add To Cart in ProductScreen.js
+    2. create CartScreen.js
+15. Implement Add to Cart Action
+    1. create addToCart constants, actions and reducers
+    2. add reducer to store.js
+    3. use action in CartScreen.js
+    4. render cartItems.length
+16. Build Cart Screen
+    1. create 2 columns for cart items and cart action
+    2. cartItems.length === 0 ? cart is empty
+    3. show item image, name, qty and price
+    4. Proceed to Checkout button
+    5. Implement remove from cart action
+17. Implement Remove From Cart Action
+    1. create removeFromCart constants, actions and reducers
+    2. add reducer to store.js
+    3. use action in CartScreen.js
 
 # doconalystyle-app

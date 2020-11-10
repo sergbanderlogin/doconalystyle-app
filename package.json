@@ -11,16 +11,20 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SergeyBunakov/doconalystyle-app.git"
+    "url": "git+https://github.com/sergbanderlogin/doconalystyle-app.git"
   },
   "bugs": {
-    "url": "https://github.com/SergeyBunakov/doconalystyle-app/issues"
+    "url": "https://github.com/sergbanderlogin/doconalystyle-app/issues"
   },
-  "homepage": "https://github.com/SergeyBunakov/doconalystyle-app#readme",
+  "homepage": "https://github.com/sergbanderlogin/doconalystyle-app#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-plugin-react": "^7.21.2",
     "nodemon": "^2.0.6"
-  }
+  },
+  "engines": {"node":"12.4.0", "npm": "6.9.0"}
+
 }
