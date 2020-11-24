@@ -41,13 +41,14 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
   } = getState();
   try {
     const {data} = await Axios.get(`/api/orders/${orderId}`, {
-      headers: {Authorization: `Bearer ${userInfo.token}`}
+      headers: {Authorization: `Bearer ${userInfo.token}`},
     });
     dispatch({type: ORDER_DETAILS_SUCCESS, payload: data});
   } catch (error) {
-    const message = error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
+    const message =
+        error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message;
     dispatch({type: ORDER_DETAILS_FAIL, payload: message});
   }
 };

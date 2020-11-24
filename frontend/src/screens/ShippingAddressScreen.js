@@ -26,7 +26,7 @@ export default function ShippingAddressScreen(props) {
   };
   return (
       <div>
-        <CheckoutSteps step1 step2/>
+        <CheckoutSteps step1 step2></CheckoutSteps>
         <form className="form" onSubmit={submitHandler}>
           <div>
             <h1>Shipping Address</h1>
@@ -40,7 +40,7 @@ export default function ShippingAddressScreen(props) {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
-            />
+            ></input>
           </div>
           <div>
             <label htmlFor="address">Address</label>
@@ -51,7 +51,7 @@ export default function ShippingAddressScreen(props) {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
-            />
+            ></input>
           </div>
           <div>
             <label htmlFor="city">City</label>
@@ -62,7 +62,7 @@ export default function ShippingAddressScreen(props) {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
-            />
+            ></input>
           </div>
           <div>
             <label htmlFor="postalCode">Postal Code</label>
@@ -73,7 +73,7 @@ export default function ShippingAddressScreen(props) {
                 value={postalCode}
                 onChange={(e) => setPostalCode(e.target.value)}
                 required
-            />
+            ></input>
           </div>
           <div>
             <label htmlFor="country">Country</label>
@@ -84,7 +84,7 @@ export default function ShippingAddressScreen(props) {
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 required
-            />
+            ></input>
           </div>
           <div>
             <label/>

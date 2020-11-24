@@ -4,8 +4,8 @@ const {
   PRODUCT_LIST_FAIL,
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DETAILS_FAIL
-} = require('../constants/productConstants')
+  PRODUCT_DETAILS_FAIL,
+} = require('../constants/productConstants');
 
 export const productListReducer = (
     state = {loading: true, products: []},

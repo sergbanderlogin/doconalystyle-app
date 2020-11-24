@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {detailsOrder} from "../actions/orderActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
+import {detailsOrder} from '../actions/orderActions';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 export default function OrderScreen(props) {
   const orderId = props.match.params.id;
@@ -14,7 +14,7 @@ export default function OrderScreen(props) {
     dispatch(detailsOrder(orderId));
   }, [dispatch, orderId]);
   return loading ? (
-      <LoadingBox/>
+      <LoadingBox></LoadingBox>
   ) : error ? (
       <MessageBox variant="danger">{error}</MessageBox>
   ) : (
@@ -29,11 +29,14 @@ export default function OrderScreen(props) {
                   <p>
                     <strong>Name:</strong> {order.shippingAddress.fullName} <br/>
                     <strong>Address: </strong> {order.shippingAddress.address},
-                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                    ,{order.shippingAddress.country}
+                    {order.shippingAddress.city},{' '}
+                    {order.shippingAddress.postalCode},
+                    {order.shippingAddress.country}
                   </p>
                   {order.isDelivered ? (
-                      <MessageBox variant="success">Delivered at {order.deliveredAt}</MessageBox>
+                      <MessageBox variant="success">
+                        Delivered at {order.deliveredAt}
+                      </MessageBox>
                   ) : (
                       <MessageBox variant="danger">Not Delivered</MessageBox>
                   )}
@@ -46,7 +49,9 @@ export default function OrderScreen(props) {
                     <strong>Method:</strong> {order.paymentMethod}
                   </p>
                   {order.isPaid ? (
-                      <MessageBox variant="success">Paid at {order.paidAt}</MessageBox>
+                      <MessageBox variant="success">
+                        Paid at {order.paidAt}
+                      </MessageBox>
                   ) : (
                       <MessageBox variant="danger">Not Paid</MessageBox>
                   )}
@@ -56,7 +61,7 @@ export default function OrderScreen(props) {
                 <div className="card card-body">
                   <h2>Order Items</h2>
                   <ul>
-                    {order.cartItems.map((item) => (
+                    {order.orderItems.map((item) => (
                         <li key={item.product}>
                           <div className="row">
                             <div>
@@ -64,7 +69,7 @@ export default function OrderScreen(props) {
                                   src={item.image}
                                   alt={item.name}
                                   className="small"
-                              />
+                              ></img>
                             </div>
                             <div className="min-30">
                               <Link to={`/product/${item.product}`}>
