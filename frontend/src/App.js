@@ -66,7 +66,7 @@ function App() {
             <Route path="/order/:id" component={OrderScreen}></Route>
             <Route path="/" component={HomeScreen} exact></Route>
           </main>
-          <footer className="row center">All right reserved</footer>
+          <footer className="row center">All right reserved © 2020</footer>
         </div>
       </BrowserRouter>
   );
