@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/doconalystyle-app', {
   useNewUrlParser: true,
@@ -20,12 +20,15 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/doconalystyle-a
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
+app.get('/api/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
 app.get('/', (req, res) => {
   res.send('Server is ready');
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
+  res.status(500).send({message: err.message});
 });
 
 const port = process.env.PORT || 5000;
