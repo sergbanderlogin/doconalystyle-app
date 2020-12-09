@@ -1,24 +1,24 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {BrowserRouter, Link, Route} from 'react-router-dom';
-import {signout} from './actions/userActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { signout } from './actions/userActions';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import ProfileScreen from "./screens/ProfileScreen";
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
-import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 
 function App() {
   const cart = useSelector((state) => state.cart);
-  const {cartItems} = cart;
+  const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
-  const {userInfo} = userSignin;
+  const { userInfo } = userSignin;
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
@@ -29,7 +29,7 @@ function App() {
           <header className="row">
             <div>
               <Link className="brand" to="/">
-                DoconalyStyle
+                amazona
               </Link>
             </div>
             <div>
@@ -45,9 +45,8 @@ function App() {
                       {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
                     </Link>
                     <ul className="dropdown-content">
-                      <link to="/profile">User Profile</link>
                       <li>
-
+                        <Link to="/profile">User Profile</Link>
                       </li>
                       <li>
                         <Link to="/orderhistory">Order History</Link>
