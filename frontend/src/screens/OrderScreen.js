@@ -3,7 +3,7 @@ import Axios from "axios";
 import {PayPalButton} from 'react-paypal-button-v2';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import {deliverOrder, detailsOrder, payOrder} from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import {
@@ -17,7 +17,7 @@ export default function OrderScreen(props) {
   const orderDetails = useSelector((state) => state.orderDetails);
   const {order, loading, error} = orderDetails;
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {userInfo} = userSignin;
 
   const orderPay = useSelector(state => state.orderPay);
   const {
@@ -51,7 +51,7 @@ export default function OrderScreen(props) {
         (order && order._id !== orderId)
     ) {
       dispatch({type: ORDER_PAY_RESET});
-      dispatch({ type: ORDER_DELIVER_RESET });
+      dispatch({type: ORDER_DELIVER_RESET});
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
@@ -62,7 +62,7 @@ export default function OrderScreen(props) {
         }
       }
     }
-  }, [dispatch, order, orderId, sdkReady, successPay, successDeliver]);
+  }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(order, paymentResult))

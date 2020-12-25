@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
-import { signout } from './actions/userActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
+import {signout} from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
@@ -18,12 +18,13 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
+import UserListScreen from "./screens/UserListScreen";
 
 function App() {
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const {cartItems} = cart;
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {userInfo} = userSignin;
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
@@ -115,6 +116,10 @@ function App() {
             <AdminRoute
                 path="/orderlist"
                 component={OrderListScreen}
+            ></AdminRoute>
+            <AdminRoute
+                path="/userList"
+                component={UserListScreen}
             ></AdminRoute>
             <Route path="/" component={HomeScreen} exact></Route>
           </main>
