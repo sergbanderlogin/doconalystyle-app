@@ -101,7 +101,6 @@ userRouter.get(
       res.send(users);
     })
 );
-
 userRouter.delete(
     '/:id',
     isAuth,
@@ -120,7 +119,6 @@ userRouter.delete(
       }
     })
 );
-
 userRouter.put(
     '/:id',
     isAuth,
@@ -139,5 +137,4 @@ userRouter.put(
       }
     })
 );
-
 export default userRouter;

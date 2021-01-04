@@ -1,9 +1,16 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {createProduct, deleteProduct, listProducts} from '../actions/productActions';
+import {
+  createProduct,
+  deleteProduct,
+  listProducts,
+} from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import {PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET} from "../constants/productConstants";
+import {
+  PRODUCT_CREATE_RESET,
+  PRODUCT_DELETE_RESET,
+} from '../constants/productConstants';
 
 export default function ProductListScreen(props) {
   const sellerMode = props.match.path.indexOf('/seller') >= 0;
@@ -17,26 +24,25 @@ export default function ProductListScreen(props) {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
-
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
   } = productDelete;
+
   const userSignin = useSelector((state) => state.userSignin);
   const {userInfo} = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
       dispatch({type: PRODUCT_CREATE_RESET});
-      props.history.push(`/product/${createProduct._id}/edit`);
+      props.history.push(`/product/${createdProduct._id}/edit`);
     }
     if (successDelete) {
       dispatch({type: PRODUCT_DELETE_RESET});
-
     }
-    dispatch(listProducts({ seller: sellerMode ? userInfo._id : '' }));
+    dispatch(listProducts({seller: sellerMode ? userInfo._id : ''}));
   }, [
     createdProduct,
     dispatch,
@@ -48,13 +54,13 @@ export default function ProductListScreen(props) {
   ]);
 
   const deleteHandler = (product) => {
-    if (window.confirm("Are you sure to delete")) {
+    if (window.confirm('Are you sure to delete?')) {
       dispatch(deleteProduct(product._id));
     }
   };
   const createHandler = () => {
     dispatch(createProduct());
-  }
+  };
   return (
       <div>
         <div className="row">
@@ -63,12 +69,10 @@ export default function ProductListScreen(props) {
             Create Product
           </button>
         </div>
-
         {loadingDelete && <LoadingBox></LoadingBox>}
-        {errorDelete && <MessageBox variant={"danger"}>{errorDelete}</MessageBox>}
-
+        {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
         {loadingCreate && <LoadingBox></LoadingBox>}
-        {errorCreate && <MessageBox variant={"danger"}>{errorCreate}</MessageBox>}
+        {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
         {loading ? (
             <LoadingBox></LoadingBox>
         ) : error ? (
