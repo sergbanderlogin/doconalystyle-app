@@ -78,4 +78,8 @@ export default function SellerScreen(props) {
         </div>
       </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Create_Seller_Page_50
