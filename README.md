@@ -277,6 +277,12 @@
     1. create seller page
     2. update product component and product screen
     3. update product routes    
+       
+!!! (look comments file Product.js from terms 23 to 27)
 
+51. Add Top Seller Carousel
+    1. install react carousel
+    2. implement actions and reducers for top sellers
+    3. use react carousel with data in Home Screen
 
 # doconalystyle-app
