@@ -17,12 +17,10 @@ export default function CartScreen(props) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
-
   const removeFromCartHandler = (id) => {
     // delete action
     dispatch(removeFromCart(id));
   };
-
   const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
   };
@@ -30,7 +28,7 @@ export default function CartScreen(props) {
       <div className="row top">
         <div className="col-2">
           <h1>Shopping Cart</h1>
-          {error && (<MessageBox variant="danger">{error}</MessageBox>)}
+          {error && <MessageBox variant="danger">{error}</MessageBox>}
           {cartItems.length === 0 ? (
               <MessageBox>
                 Cart is empty. <Link to="/">Go Shopping</Link>
@@ -45,7 +43,7 @@ export default function CartScreen(props) {
                               src={item.image}
                               alt={item.name}
                               className="small"
-                          ></img>
+                          />
                         </div>
                         <div className="min-30">
                           <Link to={`/product/${item.product}`}>{item.name}</Link>
