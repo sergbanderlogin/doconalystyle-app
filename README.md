@@ -295,6 +295,10 @@
 54. Add Advanced Search Filter
     1.  filter by category
     2.  filter by price range
-    3.  filter by average rating    
+    3.  filter by average rating
+55. Complete Advanced Search
+    1.  filter by price
+    2.  filter by rating
+    3.  sort by price, rating, ...    
 
 # doconalystyle-app

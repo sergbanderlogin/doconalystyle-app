@@ -389,6 +389,10 @@ img.large {
     margin-left: 0.5rem;
 }
 
+.active {
+    font-weight: bold;
+}
+
 /* webpack://node_modules/react-responsive-carousel/lib/styles/carousel.min.css */
 /*.carousel .slide {
     background: #eca258 !important;
