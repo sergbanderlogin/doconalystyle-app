@@ -1,16 +1,15 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {addToCart, removeFromCart} from '../actions/cartActions';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
-
 export default function CartScreen(props) {
   const productId = props.match.params.id;
   const qty = props.location.search
       ? Number(props.location.search.split('=')[1])
       : 1;
   const cart = useSelector((state) => state.cart);
-  const {cartItems, error} = cart;
+  const { cartItems, error } = cart;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
@@ -43,7 +42,7 @@ export default function CartScreen(props) {
                               src={item.image}
                               alt={item.name}
                               className="small"
-                          />
+                          ></img>
                         </div>
                         <div className="min-30">
                           <Link to={`/product/${item.product}`}>{item.name}</Link>
