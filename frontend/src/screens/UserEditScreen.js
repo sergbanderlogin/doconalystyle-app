@@ -46,67 +46,67 @@ export default function UserEditScreen(props) {
     dispatch(updateUser({ _id: userId, name, email, isSeller, isAdmin }));
   };
   return (
-      <div>
-        <form className="form" onSubmit={submitHandler}>
-          <div>
-            <h1>Edit User {name}</h1>
-            {loadingUpdate && <LoadingBox></LoadingBox>}
-            {errorUpdate && (
-                <MessageBox variant="danger">{errorUpdate}</MessageBox>
-            )}
-          </div>
-          {loading ? (
-              <LoadingBox />
-          ) : error ? (
-              <MessageBox variant="danger">{error}</MessageBox>
-          ) : (
-              <>
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input
-                      id="name"
-                      type="text"
-                      placeholder="Enter name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                  ></input>
-                </div>
-                <div>
-                  <label htmlFor="email">Email</label>
-                  <input
-                      id="email"
-                      type="email"
-                      placeholder="Enter email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                  ></input>
-                </div>
-                <div>
-                  <label htmlFor="isSeller">Is Seller</label>
-                  <input
-                      id="isSeller"
-                      type="checkbox"
-                      checked={isSeller}
-                      onChange={(e) => setIsSeller(e.target.checked)}
-                  ></input>
-                </div>
-                <div>
-                  <label htmlFor="isAdmin">Is Admin</label>
-                  <input
-                      id="isAdmin"
-                      type="checkbox"
-                      checked={isAdmin}
-                      onChange={(e) => setIsAdmin(e.target.checked)}
-                  ></input>
-                </div>
-                <div>
-                  <button type="submit" className="primary">
-                    Update
-                  </button>
-                </div>
-              </>
+    <div>
+      <form className="form" onSubmit={submitHandler}>
+        <div>
+          <h1>Edit User {name}</h1>
+          {loadingUpdate && <LoadingBox></LoadingBox>}
+          {errorUpdate && (
+            <MessageBox variant="danger">{errorUpdate}</MessageBox>
           )}
-        </form>
-      </div>
+        </div>
+        {loading ? (
+          <LoadingBox />
+        ) : error ? (
+          <MessageBox variant="danger">{error}</MessageBox>
+        ) : (
+          <>
+            <div>
+              <label htmlFor="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="isSeller">Is Seller</label>
+              <input
+                id="isSeller"
+                type="checkbox"
+                checked={isSeller}
+                onChange={(e) => setIsSeller(e.target.checked)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="isAdmin">Is Admin</label>
+              <input
+                id="isAdmin"
+                type="checkbox"
+                checked={isAdmin}
+                onChange={(e) => setIsAdmin(e.target.checked)}
+              ></input>
+            </div>
+            <div>
+              <button type="submit" className="primary">
+                Update
+              </button>
+            </div>
+          </>
+        )}
+      </form>
+    </div>
   );
 }

@@ -6,6 +6,7 @@ import {
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
 } from '../constants/cartConstants';
+
 export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
@@ -16,7 +17,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           ...state,
           error: '',
           cartItems: state.cartItems.map((x) =>
-              x.product === existItem.product ? item : x
+            x.product === existItem.product ? item : x
           ),
         };
       } else {

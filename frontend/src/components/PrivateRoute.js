@@ -6,15 +6,15 @@ export default function PrivateRoute({ component: Component, ...rest }) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   return (
-      <Route
-          {...rest}
-          render={(props) =>
-              userInfo ? (
-                  <Component {...props}></Component>
-              ) : (
-                  <Redirect to="/signin" />
-              )
-          }
-      ></Route>
+    <Route
+      {...rest}
+      render={(props) =>
+        userInfo ? (
+          <Component {...props}></Component>
+        ) : (
+          <Redirect to="/signin" />
+        )
+      }
+    ></Route>
   );
 }
